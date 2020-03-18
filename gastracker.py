@@ -27,12 +27,12 @@ def get_html(url):  # gets html from url given
 def get_html_with_js(url):
     session = HTMLSession()
     response = session.get(url, headers={'User-Agent': 'Mozilla/5.0'})
-    response.html.render(sleep=1, keep_page=True)
+    response.html.render(sleep=2, keep_page=True)
     return BeautifulSoup(response.html.html, "html.parser")
 
 
 def crop_and_resize(img, y1):  # crops the image containing fuel price info into boxes that contain only the prices and enlarges the resulting image in order to aid OCR
-    size = 340, 80
+    size = 680, 160
     cropped_img = img.crop((245, y1, 330, y1 + 20))  # second and last parameters signify upper and lower bound
     return cropped_img.resize(size, Image.ANTIALIAS)
 

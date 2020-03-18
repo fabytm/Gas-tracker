@@ -32,7 +32,7 @@ def get_html_with_js(url):
 
 
 def crop_and_resize(img, y1):  # crops the image containing fuel price info into boxes that contain only the prices and enlarges the resulting image in order to aid OCR
-    size = 680, 160
+    size = 340, 80
     cropped_img = img.crop((245, y1, 330, y1 + 20))  # second and last parameters signify upper and lower bound
     return cropped_img.resize(size, Image.ANTIALIAS)
 
